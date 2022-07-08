@@ -32,7 +32,7 @@ public class CreateHTML implements Temporary {
         if (matcher.find()) {
             String variable = matcher.group();
             String var = variable.substring(2, variable.length()-2).strip().substring(1);
-            if (tem.containsKey(var)) line = line.replaceAll(patternText, tem.get(var));
+            if (portMap.containsKey(var)) line = line.replaceAll(patternText, portMap.get(var));
         }
         return line;
     }
