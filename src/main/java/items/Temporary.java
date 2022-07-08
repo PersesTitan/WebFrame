@@ -11,11 +11,15 @@ public interface Temporary {
     Map<String, String> path = new HashMap<>();
 
     static void startSetting() {
-        System.out.printf("[%s][OTL Server 시작]%n",
-                new SimpleDateFormat("yyyy-MM-dd H:mm:ss").format(new Date()));
+        System.out.printf("[%s]%s[OTL Server 시작]%s ",
+                new SimpleDateFormat("yyyy-MM-dd H:mm:ss").format(new Date()),
+                Color.green,
+                Color.exit);
 
         Runtime.getRuntime().addShutdownHook(new Thread(() ->
-            System.out.printf("[%s][OTL Server 종료]%n",
-                    new SimpleDateFormat("yyyy-MM-dd H:mm:ss").format(new Date()))));
+            System.out.printf("[%s]%s[OTL Server 종료]%s ",
+                    new SimpleDateFormat("yyyy-MM-dd H:mm:ss").format(new Date()),
+                    Color.green,
+                    Color.exit)));
     }
 }
