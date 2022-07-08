@@ -6,9 +6,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public interface Temporary {
-    Map<String, String> tem = new HashMap<>();
-    //url, html 경로
-    Map<String, String> path = new HashMap<>();
+    Map<String, String> portMap = new HashMap<>();
+    Map<String, String> pathMap = new HashMap<>(); //url, html 경로
 
     static void startSetting() {
         System.out.printf("[%s]%s[OTL Server 시작]%s ",
