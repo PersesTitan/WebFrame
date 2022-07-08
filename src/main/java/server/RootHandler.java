@@ -3,6 +3,7 @@ package server;
 import com.sun.net.httpserver.Headers;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
+import items.Color;
 import items.Temporary;
 
 import java.io.IOException;
@@ -34,9 +35,9 @@ public class RootHandler implements HttpHandler, Temporary {
                 String dateFormat = "yyyy-MM-dd H:mm:ss";
                 String query = exchange.getRequestURI().getQuery();
                 System.out.printf("[%s]", new SimpleDateFormat(dateFormat).format(new Date()));
-                System.out.printf("[%s]", exchange.getRequestMethod());
-                System.out.printf(" [PATH] %s ", path == null ? "" : path);
-                System.out.printf("| [QueryString] %s\n", query == null ? "" : query);
+                System.out.printf("%s[%s]%s", Color.cyan, exchange.getRequestMethod(), Color.exit);
+                System.out.printf(" %s[PATH]%s %s ", Color.blue, Color.exit, path == null ? "" : path);
+                System.out.printf("| %s[QueryString]%s %s\n", Color.blue, Color.exit, query == null ? "" : query);
 
                 exchange.sendResponseHeaders(200, contentLen);
                 responsive.write(content);
